@@ -86,8 +86,12 @@ const LoginPage = () => {
       >
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center">
-            <FiStar className="h-8 w-8 text-yellow-400 mr-2" />
-            <span className="text-2xl font-bold text-white font-goldman">LEVEJ</span>
+            <img 
+              src="/images/logo.png" 
+              alt="Level Logo" 
+              className="h-10 w-auto object-contain max-w-full"
+              style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+            />
           </Link>
           <h2 className="mt-6 text-3xl font-bold text-white font-goldman">
             <span className="font-montserrat-uppercase text-lg block mb-2">sign in to your account</span>

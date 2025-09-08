@@ -121,8 +121,12 @@ const LandingPage = () => {
               data-aos-delay="200"
               onClick={() => navigate('/')}
             >
-              <FiStar className="h-8 w-8 text-yellow-400 mr-2" />
-              <span className="text-2xl font-goldman-bold text-white">LEVEL</span>
+              <img 
+                src="/images/logo.png" 
+                alt="Level Logo" 
+                className="h-10 w-auto object-contain max-w-full"
+                style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+              />
             </div>
             <div className="flex items-center space-x-8" data-aos="fade-left" data-aos-delay="400">
               {/* Navigation Dropdown */}
@@ -268,7 +272,7 @@ const LandingPage = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 pricing-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl text-white mb-4 font-goldman-bold">
@@ -350,7 +354,7 @@ const LandingPage = () => {
             </p>
             <Button
               size="lg"
-              className="bg-white hover:bg-gray-100 text-black font-goldman pulse-animation"
+              className="!bg-white !hover:bg-gray-50 !text-gray-800 !font-goldman !border-0 !shadow-none !focus:ring-gray-300"
               onClick={() => navigate('/register')}
               data-aos="fade-up"
               data-aos-delay="300"
@@ -365,8 +369,12 @@ const LandingPage = () => {
       <footer className="bg-black text-white py-12" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center" data-aos="fade-up" data-aos-delay="200">
-            <FiStar className="h-6 w-6 text-yellow-400 mr-2" />
-            <span className="text-lg font-goldman-bold">LEVEL</span>
+            <img 
+              src="/images/logo.png" 
+              alt="Level Logo" 
+              className="h-8 w-auto object-contain max-w-full"
+              style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+            />
           </div>
           <p className="text-center text-gray-400 mt-4 font-montserrat-light" data-aos="fade-up" data-aos-delay="400">
             © 2025 Level 4 You. All rights reserved.
