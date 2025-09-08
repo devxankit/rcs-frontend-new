@@ -94,8 +94,12 @@ const AboutUsPage = () => {
               data-aos-delay="200"
               onClick={() => navigate('/')}
             >
-              <FiStar className="h-8 w-8 text-yellow-400 mr-2" />
-              <span className="text-2xl font-goldman-bold text-white">LEVEL</span>
+              <img 
+                src="/images/logo.png" 
+                alt="Level Logo" 
+                className="h-10 w-auto object-contain max-w-full"
+                style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+              />
             </div>
             <div className="flex items-center space-x-8" data-aos="fade-left" data-aos-delay="400">
               {/* Navigation Dropdown */}

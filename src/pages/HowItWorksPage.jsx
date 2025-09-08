@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FiStar, FiArrowUp, FiUserPlus, FiSettings, FiBarChart2, FiTrendingUp, FiCheckCircle, FiArrowRight, FiChevronDown } from 'react-icons/fi';
+import { FiStar, FiArrowUp, FiChevronDown } from 'react-icons/fi';
 import Button from '../components/ui/Button';
 
 const HowItWorksPage = () => {
@@ -36,82 +36,48 @@ const HowItWorksPage = () => {
     });
   };
 
-  const steps = [
+  const plans = [
     {
-      number: '01',
-      icon: FiUserPlus,
-      title: 'Sign Up & Setup',
-      description: 'Create your account and complete your business profile. It takes just a few minutes to get started.',
-      details: [
-        'Create your Level account',
-        'Add your business information',
-        'Choose your subscription plan',
-        'Verify your business details'
-      ]
+      name: 'Basic Level',
+      description: 'Perfect for small companies and startups looking to establish their online presence and build initial customer trust.',
+      badge: '/images/badge-1.png'
     },
     {
-      number: '02',
-      icon: FiSettings,
-      title: 'Customize Your Widget',
-      description: 'Design your review collection widget to match your brand and website perfectly.',
-      details: [
-        'Choose your widget style',
-        'Customize colors and fonts',
-        'Set up review collection rules',
-        'Configure notification settings'
-      ]
+      name: 'Advanced Level',
+      description: 'Ideal for businesses already working with customers who want to enhance their reputation management and customer feedback collection.',
+      badge: '/images/badge-2.png'
     },
     {
-      number: '03',
-      icon: FiBarChart2,
-      title: 'Integrate & Collect',
-      description: 'Add the widget to your website and start collecting authentic reviews from your customers.',
-      details: [
-        'Copy the integration code',
-        'Add to your website',
-        'Start collecting reviews',
-        'Monitor review activity'
-      ]
+      name: 'Pro Level',
+      description: 'Designed for companies that value scale and are ready for comprehensive review management with advanced analytics and automation.',
+      badge: '/images/badge-3.png'
     },
     {
-      number: '04',
-      icon: FiTrendingUp,
-      title: 'Analyze & Grow',
-      description: 'Use our analytics dashboard to understand your customers and grow your business.',
-      details: [
-        'View detailed analytics',
-        'Respond to reviews',
-        'Track performance metrics',
-        'Optimize your strategy'
-      ]
+      name: 'Unique Level',
+      description: 'Tailored for large organizations and holdings that need enterprise-level review management solutions with custom integrations.',
+      badge: null
     }
   ];
 
-  const features = [
+  const certifications = [
     {
-      title: 'Easy Integration',
-      description: 'Add our widget to your website with just a few lines of code. No technical expertise required.',
+      level: 'BRONZE',
+      color: 'orange',
+      description: 'Basic review management with essential features for small businesses starting their online reputation journey.',
+      badge: '/images/badge-1.png'
     },
     {
-      title: 'Real-time Analytics',
-      description: 'Get instant insights into your review performance with our comprehensive analytics dashboard.',
+      level: 'SILVER',
+      color: 'gray',
+      description: 'Advanced analytics and automated review collection for growing businesses with moderate review volume.',
+      badge: '/images/badge-2.png'
     },
     {
-      title: 'Automated Collection',
-      description: 'Set up automated review requests to collect feedback from customers at the right time.',
-    },
-    {
-      title: 'Custom Branding',
-      description: 'Customize every aspect of your review widget to match your brand perfectly.',
-    },
-    {
-      title: 'Review Management',
-      description: 'Easily respond to reviews, moderate content, and manage your online reputation.',
-    },
-    {
-      title: 'Multi-platform Support',
-      description: 'Collect reviews from multiple platforms and display them all in one unified widget.',
-    },
+      level: 'GOLD',
+      color: 'yellow',
+      description: 'Premium features with full customization, white-label options, and dedicated support for enterprise clients.',
+      badge: '/images/badge-3.png'
+    }
   ];
 
   return (
@@ -126,8 +92,12 @@ const HowItWorksPage = () => {
               data-aos-delay="200"
               onClick={() => navigate('/')}
             >
-              <FiStar className="h-8 w-8 text-yellow-400 mr-2" />
-              <span className="text-2xl font-goldman-bold text-white">LEVEL</span>
+              <img 
+                src="/images/logo.png" 
+                alt="Level Logo" 
+                className="h-10 w-auto object-contain max-w-full"
+                style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+              />
             </div>
             <div className="flex items-center space-x-8" data-aos="fade-left" data-aos-delay="400">
               {/* Navigation Dropdown */}
@@ -203,162 +173,183 @@ const HowItWorksPage = () => {
       {/* Hero Section */}
       <section 
         className="relative py-32 min-h-screen flex items-center justify-center how-it-works-hero-bg"
+        style={{
+          background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/images/image-2.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div data-aos="fade-up" data-aos-duration="800">
-            <h1 className="text-5xl md:text-6xl text-white mb-6 font-goldman-bold" data-aos="fade-up" data-aos-delay="200">
+            {/* Decorative brackets */}
+            <div className="absolute top-8 left-8 w-16 h-16 border-l-4 border-t-4 border-white opacity-30"></div>
+            <div className="absolute bottom-8 left-8 w-16 h-16 border-l-4 border-b-4 border-white opacity-30"></div>
+            
+            <h1 className="text-6xl md:text-7xl text-white mb-6 font-goldman-bold" data-aos="fade-up" data-aos-delay="200">
               HOW IT WORKS
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-montserrat-light" data-aos="fade-up" data-aos-delay="400">
-              Get started with Level in just 4 simple steps and transform your review management
+          </div>
+        </div>
+      </section>
+
+      {/* Individual Approach Section */}
+      <section className="py-20 bg-black relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Decorative brackets */}
+          <div className="absolute top-8 left-8 w-16 h-16 border-l-4 border-t-4 border-white opacity-30"></div>
+          <div className="absolute bottom-8 left-8 w-16 h-16 border-l-4 border-b-4 border-white opacity-30"></div>
+          
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-white mb-8 font-montserrat-light leading-relaxed" data-aos="fade-up">
+              Time is the most valuable resource in business. That's why we've designed Level to be incredibly simple to set up and use. 
+              Our technical team handles all the complex integrations, so you can focus on what matters most - growing your business.
+            </p>
+            
+            <h2 className="text-4xl text-white text-center mb-8 font-goldman-bold" data-aos="fade-up" data-aos-delay="200">
+              Individual approach
+            </h2>
+            
+            <p className="text-lg text-white font-montserrat-light leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+              Every business is unique, and so are their review management needs. We create tailored plans that align with your specific 
+              goals, industry requirements, and customer base. Our individual approach ensures you get exactly what you need to succeed.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Steps Section */}
-      <section className="py-20 bg-black">
+      {/* LEVEL Widget Section */}
+      <section className="py-20 bg-yellow-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl text-black mb-8 font-goldman-bold" data-aos="fade-up">
+              LEVEL Widget
+            </h2>
+            
+            <p className="text-lg text-black mb-6 font-montserrat-light leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+              Our intelligent widget displays real, verified reviews from your customers directly on your website. 
+              It automatically updates with new reviews and showcases your best feedback to build trust with potential customers.
+            </p>
+            
+            <p className="text-lg text-black font-montserrat-light leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+              When visitors click on the widget, they're redirected to a dedicated page where they can read detailed reviews, 
+              see your overall rating, and learn more about your business. This seamless experience encourages more customer engagement.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Plans Section */}
+      <section 
+        className="py-20 relative"
+        style={{
+          background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/image-1.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl text-white mb-4 font-goldman-bold">
-              Simple 4-Step Process
+              Who the LEVEL Plans are For
             </h2>
-            <p className="text-xl text-gray-300 font-montserrat-light">
-              From setup to success in minutes, not hours
-            </p>
           </div>
-
-          <div className="space-y-16">
-            {steps.map((step, index) => (
+          
+          <div className="space-y-12">
+            {plans.map((plan, index) => (
               <div
-                key={step.number}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                }`}
+                key={plan.name}
+                className="flex items-center justify-between"
                 data-aos="fade-up"
                 data-aos-delay={index * 200}
               >
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="flex items-center mb-6">
-                    <div className="bg-yellow-400 text-black w-16 h-16 rounded-full flex items-center justify-center text-2xl font-goldman-bold mr-6">
-                      {step.number}
-                    </div>
-                    <step.icon className="h-12 w-12 text-yellow-400" />
-                  </div>
-                  <h3 className="text-3xl text-white mb-4 font-goldman-bold">
-                    {step.title}
+                <div className="flex-1">
+                  <h3 className="text-2xl text-white mb-4 font-goldman-bold">
+                    {plan.name}
                   </h3>
-                  <p className="text-lg text-gray-300 mb-6 font-montserrat-light">
-                    {step.description}
+                  <p className="text-white font-montserrat-light leading-relaxed">
+                    {plan.description}
                   </p>
-                  <ul className="space-y-3">
-                    {step.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-center">
-                        <FiCheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
-                        <span className="text-gray-300 font-montserrat-light">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 h-80 flex items-center justify-center">
-                    <div className="text-center">
-                      <step.icon className="h-24 w-24 text-yellow-400 mx-auto mb-4" />
-                      <p className="text-gray-300 font-montserrat-light">
-                        Step {step.number} Visualization
-                      </p>
-                    </div>
+                {plan.badge && (
+                  <div className="ml-8">
+                    <img 
+                      src={plan.badge} 
+                      alt={`${plan.name} Badge`}
+                      className="h-24 w-auto object-contain"
+                    />
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gray-900">
+      {/* Certification Section */}
+      <section className="py-20 bg-black relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Decorative brackets */}
+          <div className="absolute top-8 left-8 w-16 h-16 border-l-4 border-t-4 border-white opacity-30"></div>
+          <div className="absolute top-8 right-8 w-16 h-16 border-r-4 border-t-4 border-white opacity-30"></div>
+          <div className="absolute bottom-8 left-8 w-16 h-16 border-l-4 border-b-4 border-white opacity-30"></div>
+          <div className="absolute bottom-8 right-8 w-16 h-16 border-r-4 border-b-4 border-white opacity-30"></div>
+          
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl text-white mb-4 font-goldman-bold">
-              Powerful Features
+              LEVEL Certification
             </h2>
-            <p className="text-xl text-gray-300 font-montserrat-light">
-              Everything you need to manage reviews like a pro
-            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {certifications.map((cert, index) => (
               <div
-                key={feature.title}
+                key={cert.level}
+                className="text-center"
                 data-aos="fade-up"
-                data-aos-delay={index * 100}
-                data-aos-duration="800"
-                className="bg-gray-800 p-6 rounded-lg border border-gray-700 h-full"
+                data-aos-delay={index * 200}
               >
-                <h3 className="text-xl text-white mb-3 font-goldman-bold">
-                  {feature.title}
+                <div className={`w-4 h-4 rounded-full mx-auto mb-4 ${
+                  cert.color === 'orange' ? 'bg-orange-500' : 
+                  cert.color === 'gray' ? 'bg-gray-400' : 'bg-yellow-400'
+                }`}></div>
+                <h3 className="text-xl text-white mb-2 font-goldman-bold">
+                  {cert.level}
                 </h3>
                 <p className="text-gray-300 font-montserrat-light">
-                  {feature.description}
+                  {cert.description}
                 </p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
-              <h2 className="text-4xl text-white mb-6 font-goldman-bold">
-                Why Choose Level?
-              </h2>
-              <p className="text-lg text-gray-300 mb-8 font-montserrat-light">
-                Level isn't just another review management tool. We're your partner in building 
-                authentic relationships with your customers and growing your business reputation.
-              </p>
-              <div className="space-y-6">
-                {[
-                  'Eliminate fake reviews with our verification system',
-                  'Increase customer trust with authentic feedback',
-                  'Save time with automated review collection',
-                  'Grow your business with data-driven insights',
-                  'Protect your reputation with proactive monitoring'
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-center">
-                    <FiCheckCircle className="h-6 w-6 text-yellow-400 mr-4 flex-shrink-0" />
-                    <span className="text-gray-300 font-montserrat-light">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div data-aos="fade-left">
-              <div className="bg-gray-900 p-8 rounded-lg border border-gray-700">
-                <h3 className="text-2xl text-white mb-6 font-goldman-bold">Ready to Get Started?</h3>
-                <p className="text-gray-300 mb-6 font-montserrat-light">
-                  Join thousands of businesses already using Level to build trust and grow their online presence.
-                </p>
-                <div className="space-y-4">
-                  <Button
-                    onClick={() => navigate('/register')}
-                    className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-goldman"
-                  >
-                    Start Your Free Trial
-                  </Button>
-                  <Button
-                    variant="outline"
-                    onClick={() => navigate('/contact')}
-                    className="w-full border-white text-white hover:bg-white hover:text-black font-goldman"
-                  >
-                    Contact Sales
-                  </Button>
+          
+          {/* Certification Badges */}
+          <div className="flex justify-center space-x-8">
+            {certifications.map((cert, index) => (
+              <div
+                key={`badge-${cert.level}`}
+                className="text-center"
+                data-aos="fade-up"
+                data-aos-delay={index * 200 + 400}
+              >
+                <div className={`w-24 h-24 mx-auto mb-4 flex items-center justify-center ${
+                  cert.color === 'orange' ? 'bg-orange-500' : 
+                  cert.color === 'gray' ? 'bg-gray-400' : 'bg-yellow-400'
+                }`} style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
+                  <img 
+                    src={cert.badge} 
+                    alt={`${cert.level} Certification Badge`}
+                    className="w-16 h-16 object-contain"
+                  />
                 </div>
+                <p className="text-white text-sm font-montserrat-light">
+                  CERTIFIED BY LEVEL
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -371,29 +362,17 @@ const HowItWorksPage = () => {
               Ready to Transform Your Reviews?
             </h2>
             <p className="text-xl text-black mb-8 max-w-2xl mx-auto font-montserrat-light">
-              Start your journey with Level today and see the difference authentic reviews can make.
+              Join thousands of businesses already using Level to build trust and grow their online presence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white hover:bg-gray-100 text-black font-goldman pulse-animation"
-                onClick={() => navigate('/register')}
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                Start Free Trial
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-black text-black hover:bg-black hover:text-white font-goldman"
-                onClick={() => navigate('/contact')}
-                data-aos="fade-up"
-                data-aos-delay="400"
-              >
-                Learn More
-              </Button>
-            </div>
+            <Button
+              size="lg"
+              className="!bg-white !hover:bg-gray-50 !text-gray-800 !font-goldman !border-0 !shadow-none !focus:ring-gray-300 pulse-animation"
+              onClick={() => navigate('/register')}
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              Start Your Free Trial
+            </Button>
           </div>
         </div>
       </section>
@@ -402,8 +381,12 @@ const HowItWorksPage = () => {
       <footer className="bg-black text-white py-12" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center" data-aos="fade-up" data-aos-delay="200">
-            <FiStar className="h-6 w-6 text-yellow-400 mr-2" />
-            <span className="text-lg font-goldman-bold">LEVEL</span>
+            <img 
+              src="/images/logo.png" 
+              alt="Level Logo" 
+              className="h-8 w-auto object-contain max-w-full"
+              style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+            />
           </div>
           <p className="text-center text-gray-400 mt-4 font-montserrat-light" data-aos="fade-up" data-aos-delay="400">
             © 2025 Level 4 You. All rights reserved.

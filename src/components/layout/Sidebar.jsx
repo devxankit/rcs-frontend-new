@@ -102,7 +102,12 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
-            <h1 className="text-xl font-bold text-white font-goldman">LEVEJ</h1>
+            <img 
+              src="/images/logo.png" 
+              alt="Level Logo" 
+              className="h-8 w-auto object-contain max-w-full"
+              style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+            />
             <button
               onClick={() => setIsOpen(false)}
               className="lg:hidden text-gray-400 hover:text-gray-300"
