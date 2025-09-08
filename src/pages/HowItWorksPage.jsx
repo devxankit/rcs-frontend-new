@@ -54,8 +54,9 @@ const HowItWorksPage = () => {
     },
     {
       name: 'Unique Level',
-      description: 'Tailored for large organizations and holdings that need enterprise-level review management solutions with custom integrations.',
-      badge: null
+      description: 'This plan is intended for large companies such as major retail chains, mobile network operators, hotel chains, private clinics, car dealership networks, banks, manufacturing enterprises, government organizations, and others. It is tailored individually based on a detailed business analysis and the client\'s specific requirements.',
+      badge: null,
+      isSpecial: true
     }
   ];
 
@@ -262,17 +263,39 @@ const HowItWorksPage = () => {
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
-                className="flex items-center justify-between"
+                className={`flex items-center justify-between ${
+                  plan.isSpecial 
+                    ? 'bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 border-2 border-yellow-400/50 rounded-xl p-8 backdrop-blur-sm' 
+                    : ''
+                }`}
                 data-aos="fade-up"
                 data-aos-delay={index * 200}
               >
                 <div className="flex-1">
-                  <h3 className="text-2xl text-white mb-4 font-goldman-bold">
-                    {plan.name}
-                  </h3>
-                  <p className="text-white font-montserrat-light leading-relaxed">
+                  <div className="flex items-center mb-4">
+                    <h3 className={`text-2xl font-goldman-bold ${
+                      plan.isSpecial ? 'text-yellow-400' : 'text-white'
+                    }`}>
+                      {plan.name}
+                    </h3>
+                    {plan.isSpecial && (
+                      <span className="ml-4 px-3 py-1 bg-yellow-400 text-black text-sm font-montserrat-uppercase rounded-full">
+                        Enterprise
+                      </span>
+                    )}
+                  </div>
+                  <p className={`font-montserrat-light leading-relaxed ${
+                    plan.isSpecial ? 'text-yellow-100' : 'text-white'
+                  }`}>
                     {plan.description}
                   </p>
+                  {plan.isSpecial && (
+                    <div className="mt-4 p-4 bg-black/30 rounded-lg border border-yellow-400/30">
+                      <p className="text-yellow-200 text-sm font-montserrat-light">
+                        <strong>Note:</strong> This is an informational plan. Contact our sales team for custom pricing and implementation details.
+                      </p>
+                    </div>
+                  )}
                 </div>
                 {plan.badge && (
                   <div className="ml-8">
@@ -281,6 +304,14 @@ const HowItWorksPage = () => {
                       alt={`${plan.name} Badge`}
                       className="h-24 w-auto object-contain"
                     />
+                  </div>
+                )}
+                {plan.isSpecial && (
+                  <div className="ml-8 flex flex-col items-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-2">
+                      <FiStar className="h-12 w-12 text-black" />
+                    </div>
+                    <span className="text-yellow-400 text-sm font-montserrat-uppercase">Custom</span>
                   </div>
                 )}
               </div>
