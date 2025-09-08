@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Montserrat:wght@300&display=swap');
+@import 'aos/dist/aos.css';
+
+/* Custom CSS Variables for Dark Theme */
+:root {
+  --primary-bg: #000000;
+  --secondary-bg: #111111;
+  --card-bg: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-yellow: #fbbf24;
+  --accent-yellow-dark: #f59e0b;
+  --border-color: #333333;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Goldman', 'Arial', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+/* Force font loading */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Goldman', 'Arial', sans-serif;
+}
+
+/* Font Classes */
+.font-goldman {
+  font-family: 'Goldman', 'Arial', sans-serif;
+  font-weight: 400;
+}
+
+.font-goldman-bold {
+  font-family: 'Goldman', 'Arial', sans-serif;
+  font-weight: 700;
+}
+
+.font-montserrat-light {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 300;
+}
+
+.font-montserrat-uppercase {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Debug font loading */
+.font-debug {
+  font-family: 'Goldman', 'Arial', sans-serif;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-yellow);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-yellow-dark);
+}
+
+/* Hero Background */
+.hero-bg {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/image-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #1f2937;
+}
+
+/* Alternative approach */
+.hero-bg-alt {
+  background-image: url('./images/image-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #1f2937;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom AOS animations */
+[data-aos] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--accent-yellow);
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background: var(--accent-yellow-dark);
+  transform: translateY(-2px);
+}
+
+/* Floating animation for hero elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation for buttons */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(-45deg, #fbbf24, #f59e0b, #fbbf24, #f59e0b);
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
