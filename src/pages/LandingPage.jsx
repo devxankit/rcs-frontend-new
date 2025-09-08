@@ -113,8 +113,8 @@ const LandingPage = () => {
     <div className="min-h-screen bg-black">
       {/* Header */}
       <header className="bg-black shadow-sm border-b border-gray-800 relative z-50" data-aos="fade-down">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+          <div className="flex justify-between items-center py-3 sm:py-4 lg:py-6">
             <div 
               className="flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200" 
               data-aos="fade-right" 
@@ -124,23 +124,24 @@ const LandingPage = () => {
               <img 
                 src="/images/logo.png" 
                 alt="Level Logo" 
-                className="h-10 w-auto object-contain max-w-full"
+                className="h-6 sm:h-8 lg:h-10 w-auto object-contain max-w-full"
                 style={{ filter: 'brightness(1.2) contrast(1.1)' }}
               />
             </div>
-            <div className="flex items-center space-x-8" data-aos="fade-left" data-aos-delay="400">
+            <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-8" data-aos="fade-left" data-aos-delay="400">
               {/* Navigation Dropdown */}
               <div className="relative dropdown-container">
                 <button
                   onClick={() => setShowDropdown(!showDropdown)}
-                  className="flex items-center text-white hover:text-yellow-400 transition-colors duration-200 font-montserrat-light"
+                  className="flex items-center text-white hover:text-yellow-400 transition-colors duration-200 font-montserrat-light text-xs sm:text-sm"
                 >
-                  About Us
-                  <FiChevronDown className={`ml-1 transition-transform duration-200 ${showDropdown ? 'rotate-180' : ''}`} />
+                  <span className="hidden sm:inline">About Us</span>
+                  <span className="sm:hidden">About</span>
+                  <FiChevronDown className={`ml-1 transition-transform duration-200 ${showDropdown ? 'rotate-180' : ''}`} size={14} />
                 </button>
                 {showDropdown && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-black border border-gray-700 rounded-lg shadow-2xl backdrop-blur-sm" 
+                    className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-black border border-gray-700 rounded-lg shadow-2xl backdrop-blur-sm" 
                     style={{
                       zIndex: 99999,
                       position: 'absolute',
@@ -149,13 +150,13 @@ const LandingPage = () => {
                       marginTop: '0.5rem'
                     }}
                   >
-                    <div className="py-3">
+                    <div className="py-2 sm:py-3">
                       <button
                         onClick={() => {
                           navigate('/about');
                           setShowDropdown(false);
                         }}
-                        className="block w-full text-left px-6 py-3 text-white hover:bg-gray-800 hover:text-yellow-400 transition-all duration-200 font-montserrat-light text-sm"
+                        className="block w-full text-left px-4 sm:px-6 py-2 sm:py-3 text-white hover:bg-gray-800 hover:text-yellow-400 transition-all duration-200 font-montserrat-light text-xs sm:text-sm"
                       >
                         About Us
                       </button>
@@ -165,7 +166,7 @@ const LandingPage = () => {
                           navigate('/contact');
                           setShowDropdown(false);
                         }}
-                        className="block w-full text-left px-6 py-3 text-white hover:bg-gray-800 hover:text-yellow-400 transition-all duration-200 font-montserrat-light text-sm"
+                        className="block w-full text-left px-4 sm:px-6 py-2 sm:py-3 text-white hover:bg-gray-800 hover:text-yellow-400 transition-all duration-200 font-montserrat-light text-xs sm:text-sm"
                       >
                         Contact Us
                       </button>
@@ -175,7 +176,7 @@ const LandingPage = () => {
                           navigate('/how-it-works');
                           setShowDropdown(false);
                         }}
-                        className="block w-full text-left px-6 py-3 text-white hover:bg-gray-800 hover:text-yellow-400 transition-all duration-200 font-montserrat-light text-sm"
+                        className="block w-full text-left px-4 sm:px-6 py-2 sm:py-3 text-white hover:bg-gray-800 hover:text-yellow-400 transition-all duration-200 font-montserrat-light text-xs sm:text-sm"
                       >
                         How It Works
                       </button>
@@ -186,13 +187,17 @@ const LandingPage = () => {
               <Button
                 variant="outline"
                 onClick={() => navigate('/login')}
+                className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
               >
-                Login
+                <span className="hidden sm:inline">Login</span>
+                <span className="sm:hidden">Login</span>
               </Button>
               <Button
                 onClick={() => navigate('/register')}
+                className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
               >
-                Get Started
+                <span className="hidden sm:inline">Get Started</span>
+                <span className="sm:hidden">Start</span>
               </Button>
             </div>
           </div>
