@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FiStar, FiBarChart2, FiShield, FiZap, FiUsers, FiTrendingUp, FiArrowUp, FiChevronDown } from 'react-icons/fi';
+import { FiStar, FiArrowUp, FiMail, FiPhone, FiMapPin, FiClock, FiSend, FiChevronDown } from 'react-icons/fi';
 import Button from '../components/ui/Button';
-import Card from '../components/ui/Card';
+import Input from '../components/ui/Input';
 
-const LandingPage = () => {
+const ContactUsPage = () => {
   const navigate = useNavigate();
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,75 +43,44 @@ const LandingPage = () => {
     });
   };
 
-  const features = [
-    {
-      icon: FiStar,
-      title: 'Review Collection',
-      description: 'Easily collect and manage customer reviews with our intuitive widget system.',
-    },
-    {
-      icon: FiBarChart2,
-      title: 'Analytics Dashboard',
-      description: 'Get detailed insights into your review performance with comprehensive analytics.',
-    },
-    {
-      icon: FiShield,
-      title: 'Reputation Management',
-      description: 'Protect and enhance your online reputation with our advanced management tools.',
-    },
-    {
-      icon: FiZap,
-      title: 'Quick Integration',
-      description: 'Integrate our review system into your website with just a few lines of code.',
-    },
-    {
-      icon: FiUsers,
-      title: 'Customer Insights',
-      description: 'Understand your customers better with detailed review analysis and feedback.',
-    },
-    {
-      icon: FiTrendingUp,
-      title: 'Growth Tracking',
-      description: 'Monitor your business growth through review trends and customer satisfaction metrics.',
-    },
-  ];
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-  const plans = [
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+    // You can add your form submission logic here
+  };
+
+  const contactInfo = [
     {
-      name: 'Starter',
-      price: '$29',
-      period: '/month',
-      features: [
-        'Up to 100 reviews/month',
-        'Basic analytics',
-        'Email support',
-        'Widget customization',
-      ],
+      icon: FiMail,
+      title: 'Email Us',
+      details: 'hello@level4you.com',
+      description: 'Send us an email anytime',
     },
     {
-      name: 'Professional',
-      price: '$79',
-      period: '/month',
-      features: [
-        'Up to 500 reviews/month',
-        'Advanced analytics',
-        'Priority support',
-        'Custom branding',
-        'API access',
-      ],
-      popular: true,
+      icon: FiPhone,
+      title: 'Call Us',
+      details: '+1 (555) 123-4567',
+      description: 'Mon-Fri from 9am to 6pm',
     },
     {
-      name: 'Enterprise',
-      price: '$199',
-      period: '/month',
-      features: [
-        'Unlimited reviews',
-        'Full analytics suite',
-        '24/7 phone support',
-        'White-label solution',
-        'Custom integrations',
-      ],
+      icon: FiMapPin,
+      title: 'Visit Us',
+      details: '123 Business St, Suite 100',
+      description: 'San Francisco, CA 94105',
+    },
+    {
+      icon: FiClock,
+      title: 'Business Hours',
+      details: 'Monday - Friday',
+      description: '9:00 AM - 6:00 PM PST',
     },
   ];
 
@@ -197,140 +172,187 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <section 
-        className="relative py-32 min-h-screen flex items-center justify-center hero-bg"
+        className="relative py-32 min-h-screen flex items-center justify-center contact-hero-bg"
       >
-        <div className="relative z-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div data-aos="fade-up" data-aos-duration="800">
             <h1 className="text-5xl md:text-6xl text-white mb-6 font-goldman-bold" data-aos="fade-up" data-aos-delay="200">
-              Manage Your Reviews
-              <span className="text-yellow-400 block gradient-text floating font-montserrat-uppercase text-3xl md:text-4xl" data-aos="fade-up" data-aos-delay="400">Like a Pro</span>
+              CONTACT US
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-montserrat-light" data-aos="fade-up" data-aos-delay="600">
-              Collect, analyze, and respond to customer reviews with our comprehensive 
-              review management platform. Build trust and grow your business.
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-montserrat-light" data-aos="fade-up" data-aos-delay="400">
+              Get in touch with our team. We're here to help you succeed.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="800">
-              <Button
-                size="lg"
-                onClick={() => navigate('/register')}
-                className="bg-yellow-400 hover:bg-yellow-500 text-black font-goldman"
-              >
-                Start Free Trial
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => navigate('/login')}
-                className="border-white text-white hover:bg-white hover:text-black font-goldman"
-              >
-                View Demo
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Contact Info Section */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl text-white mb-4 font-goldman-bold">
-              Everything You Need to Succeed
+              Get In Touch
             </h2>
             <p className="text-xl text-gray-300 font-montserrat-light">
-              Powerful features to help you manage and grow your online reputation
+              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {contactInfo.map((info, index) => (
               <div
-                key={feature.title}
+                key={info.title}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
                 data-aos-duration="800"
-                className="floating"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="text-center"
               >
-                <Card hover className="h-full bg-gray-900 border-gray-700">
-                  <feature.icon className="h-12 w-12 text-yellow-400 mb-4" />
+                <div className="bg-gray-900 p-6 rounded-lg border border-gray-700 h-full">
+                  <info.icon className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
                   <h3 className="text-xl text-white mb-2 font-goldman-bold">
-                    {feature.title}
+                    {info.title}
                   </h3>
-                  <p className="text-gray-300 font-montserrat-light">
-                    {feature.description}
+                  <p className="text-yellow-400 mb-2 font-montserrat-light">
+                    {info.details}
                   </p>
-                </Card>
+                  <p className="text-gray-300 font-montserrat-light text-sm">
+                    {info.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Contact Form Section */}
       <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16" data-aos="fade-up">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-4xl text-white mb-4 font-goldman-bold">
-              Choose Your Plan
+              Send Us a Message
             </h2>
             <p className="text-xl text-gray-300 font-montserrat-light">
-              Start free and scale as you grow
+              Fill out the form below and we'll get back to you within 24 hours.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
-              <div
-                key={plan.name}
-                data-aos="fade-up"
-                data-aos-delay={index * 200}
-                data-aos-duration="800"
-              >
-                <Card 
-                  className={`h-full relative bg-gray-800 border-gray-600 ${
-                    plan.popular ? 'ring-2 ring-yellow-400' : ''
-                  }`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-montserrat-uppercase">
-                        Most Popular
-                      </span>
-                    </div>
-                  )}
-                  
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl text-white mb-2 font-goldman-bold">
-                      {plan.name}
-                    </h3>
-                    <div className="flex items-baseline justify-center">
-                      <span className="text-4xl text-white font-goldman-bold">
-                        {plan.price}
-                      </span>
-                      <span className="text-gray-300 ml-1 font-montserrat-light">
-                        {plan.period}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center">
-                        <FiStar className="h-5 w-5 text-yellow-400 mr-3" />
-                        <span className="text-gray-300 font-montserrat-light">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Button
-                    variant={plan.popular ? 'primary' : 'outline'}
+
+          <div className="bg-gray-800 p-8 rounded-lg border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-white text-sm font-goldman mb-2">
+                    Full Name *
+                  </label>
+                  <Input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
                     className="w-full"
-                    onClick={() => navigate('/register')}
-                  >
-                    Get Started
-                  </Button>
-                </Card>
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-white text-sm font-goldman mb-2">
+                    Email Address *
+                  </label>
+                  <Input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-white text-sm font-goldman mb-2">
+                  Subject *
+                </label>
+                <Input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full"
+                  placeholder="What's this about?"
+                />
+              </div>
+
+              <div>
+                <label className="block text-white text-sm font-goldman mb-2">
+                  Message *
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={6}
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent font-montserrat-light"
+                  placeholder="Tell us how we can help you..."
+                />
+              </div>
+
+              <div className="text-center">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-goldman"
+                >
+                  <FiSend className="inline mr-2" />
+                  Send Message
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-4xl text-white mb-4 font-goldman-bold">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-300 font-montserrat-light">
+              Quick answers to common questions
+            </p>
+          </div>
+
+          <div className="space-y-6" data-aos="fade-up" data-aos-delay="200">
+            {[
+              {
+                question: "How quickly can I get started with Level?",
+                answer: "You can get started in minutes! Simply sign up, choose your plan, and integrate our widget into your website. Our setup process is designed to be quick and easy."
+              },
+              {
+                question: "Do you offer customer support?",
+                answer: "Yes! We offer 24/7 email support for all plans, and phone support for Professional and Enterprise plans. Our team is always ready to help you succeed."
+              },
+              {
+                question: "Can I customize the review widget?",
+                answer: "Absolutely! Our widget is fully customizable to match your brand. You can change colors, fonts, layout, and more to create the perfect look for your website."
+              },
+              {
+                question: "Is there a free trial available?",
+                answer: "Yes! We offer a 14-day free trial for all new users. No credit card required to start your trial."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+                <h3 className="text-xl text-white mb-3 font-goldman-bold">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-300 font-montserrat-light">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -342,11 +364,10 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div data-aos="zoom-in" data-aos-duration="800">
             <h2 className="text-4xl text-black mb-4 font-goldman-bold">
-              Ready to Transform Your Reviews?
+              Ready to Get Started?
             </h2>
             <p className="text-xl text-black mb-8 max-w-2xl mx-auto font-montserrat-light">
-              Join thousands of businesses already using Level 4 You to build 
-              trust and grow their online presence.
+              Join thousands of businesses already using Level to build trust and grow their online presence.
             </p>
             <Button
               size="lg"
@@ -388,4 +409,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default ContactUsPage;

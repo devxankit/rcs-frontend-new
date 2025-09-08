@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FiStar, FiBarChart2, FiShield, FiZap, FiUsers, FiTrendingUp, FiArrowUp, FiChevronDown } from 'react-icons/fi';
+import { FiStar, FiArrowUp, FiUsers, FiTarget, FiAward, FiShield, FiChevronDown } from 'react-icons/fi';
 import Button from '../components/ui/Button';
-import Card from '../components/ui/Card';
 
-const LandingPage = () => {
+const AboutUsPage = () => {
   const navigate = useNavigate();
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -37,75 +36,49 @@ const LandingPage = () => {
     });
   };
 
-  const features = [
-    {
-      icon: FiStar,
-      title: 'Review Collection',
-      description: 'Easily collect and manage customer reviews with our intuitive widget system.',
-    },
-    {
-      icon: FiBarChart2,
-      title: 'Analytics Dashboard',
-      description: 'Get detailed insights into your review performance with comprehensive analytics.',
-    },
+  const values = [
     {
       icon: FiShield,
-      title: 'Reputation Management',
-      description: 'Protect and enhance your online reputation with our advanced management tools.',
-    },
-    {
-      icon: FiZap,
-      title: 'Quick Integration',
-      description: 'Integrate our review system into your website with just a few lines of code.',
+      title: 'Trust & Transparency',
+      description: 'We believe in building genuine relationships between businesses and customers through authentic reviews and transparent processes.',
     },
     {
       icon: FiUsers,
-      title: 'Customer Insights',
-      description: 'Understand your customers better with detailed review analysis and feedback.',
+      title: 'Customer-Centric',
+      description: 'Every feature we build is designed with our users in mind, ensuring the best possible experience for both businesses and customers.',
     },
     {
-      icon: FiTrendingUp,
-      title: 'Growth Tracking',
-      description: 'Monitor your business growth through review trends and customer satisfaction metrics.',
+      icon: FiTarget,
+      title: 'Excellence',
+      description: 'We strive for excellence in everything we do, from our technology to our customer service and support.',
+    },
+    {
+      icon: FiAward,
+      title: 'Innovation',
+      description: 'We continuously innovate to provide cutting-edge solutions that help businesses grow and succeed in the digital world.',
     },
   ];
 
-  const plans = [
+  const team = [
     {
-      name: 'Starter',
-      price: '$29',
-      period: '/month',
-      features: [
-        'Up to 100 reviews/month',
-        'Basic analytics',
-        'Email support',
-        'Widget customization',
-      ],
+      name: 'Sarah Johnson',
+      role: 'CEO & Founder',
+      description: 'Visionary leader with 15+ years in tech and customer experience.',
     },
     {
-      name: 'Professional',
-      price: '$79',
-      period: '/month',
-      features: [
-        'Up to 500 reviews/month',
-        'Advanced analytics',
-        'Priority support',
-        'Custom branding',
-        'API access',
-      ],
-      popular: true,
+      name: 'Michael Chen',
+      role: 'CTO',
+      description: 'Technology expert passionate about building scalable solutions.',
     },
     {
-      name: 'Enterprise',
-      price: '$199',
-      period: '/month',
-      features: [
-        'Unlimited reviews',
-        'Full analytics suite',
-        '24/7 phone support',
-        'White-label solution',
-        'Custom integrations',
-      ],
+      name: 'Emily Rodriguez',
+      role: 'Head of Product',
+      description: 'Product strategist focused on user experience and innovation.',
+    },
+    {
+      name: 'David Thompson',
+      role: 'Head of Marketing',
+      description: 'Marketing expert dedicated to helping businesses grow their online presence.',
     },
   ];
 
@@ -197,140 +170,133 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <section 
-        className="relative py-32 min-h-screen flex items-center justify-center hero-bg"
+        className="relative py-32 min-h-screen flex items-center justify-center about-hero-bg"
       >
-        <div className="relative z-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div data-aos="fade-up" data-aos-duration="800">
             <h1 className="text-5xl md:text-6xl text-white mb-6 font-goldman-bold" data-aos="fade-up" data-aos-delay="200">
-              Manage Your Reviews
-              <span className="text-yellow-400 block gradient-text floating font-montserrat-uppercase text-3xl md:text-4xl" data-aos="fade-up" data-aos-delay="400">Like a Pro</span>
+              ABOUT US
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-montserrat-light" data-aos="fade-up" data-aos-delay="600">
-              Collect, analyze, and respond to customer reviews with our comprehensive 
-              review management platform. Build trust and grow your business.
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-montserrat-light" data-aos="fade-up" data-aos-delay="400">
+              Building trust through authentic reviews and transparent business practices
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="800">
-              <Button
-                size="lg"
-                onClick={() => navigate('/register')}
-                className="bg-yellow-400 hover:bg-yellow-500 text-black font-goldman"
-              >
-                Start Free Trial
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => navigate('/login')}
-                className="border-white text-white hover:bg-white hover:text-black font-goldman"
-              >
-                View Demo
-              </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+              <h2 className="text-4xl text-white mb-6 font-goldman-bold">
+                Our Story
+              </h2>
+              <p className="text-lg text-gray-300 mb-6 font-montserrat-light">
+                Level was born from a simple observation: the digital marketplace was flooded with fake reviews, 
+                misleading customers and damaging honest businesses. We saw an opportunity to create something better.
+              </p>
+              <p className="text-lg text-gray-300 mb-6 font-montserrat-light">
+                Founded in 2020, we set out to build a platform that would restore trust in online reviews. 
+                Our mission is to help businesses showcase their true value while giving customers the authentic 
+                information they need to make informed decisions.
+              </p>
+              <p className="text-lg text-gray-300 font-montserrat-light">
+                Today, we're proud to serve thousands of businesses worldwide, helping them build genuine 
+                relationships with their customers through transparent, verified review systems.
+              </p>
+            </div>
+            <div data-aos="fade-left">
+              <div className="bg-gray-900 p-8 rounded-lg border border-gray-700">
+                <h3 className="text-2xl text-white mb-4 font-goldman-bold">Our Mission</h3>
+                <p className="text-gray-300 font-montserrat-light mb-6">
+                  To eliminate fake reviews and create a trusted ecosystem where businesses can showcase 
+                  their authentic value and customers can make informed decisions.
+                </p>
+                <h3 className="text-2xl text-white mb-4 font-goldman-bold">Our Vision</h3>
+                <p className="text-gray-300 font-montserrat-light">
+                  A world where every review is genuine, every business is trusted, and every customer 
+                  can confidently make decisions based on authentic feedback.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-black">
+      {/* Values Section */}
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl text-white mb-4 font-goldman-bold">
-              Everything You Need to Succeed
+              Our Values
             </h2>
             <p className="text-xl text-gray-300 font-montserrat-light">
-              Powerful features to help you manage and grow your online reputation
+              The principles that guide everything we do
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
               <div
-                key={feature.title}
+                key={value.title}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
                 data-aos-duration="800"
-                className="floating"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="text-center"
               >
-                <Card hover className="h-full bg-gray-900 border-gray-700">
-                  <feature.icon className="h-12 w-12 text-yellow-400 mb-4" />
-                  <h3 className="text-xl text-white mb-2 font-goldman-bold">
-                    {feature.title}
+                <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 h-full">
+                  <value.icon className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
+                  <h3 className="text-xl text-white mb-3 font-goldman-bold">
+                    {value.title}
                   </h3>
                   <p className="text-gray-300 font-montserrat-light">
-                    {feature.description}
+                    {value.description}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-20 bg-gray-900">
+      {/* Team Section */}
+      <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl text-white mb-4 font-goldman-bold">
-              Choose Your Plan
+              Meet Our Team
             </h2>
             <p className="text-xl text-gray-300 font-montserrat-light">
-              Start free and scale as you grow
+              The passionate people behind Level
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {team.map((member, index) => (
               <div
-                key={plan.name}
+                key={member.name}
                 data-aos="fade-up"
-                data-aos-delay={index * 200}
+                data-aos-delay={index * 100}
                 data-aos-duration="800"
+                className="text-center"
               >
-                <Card 
-                  className={`h-full relative bg-gray-800 border-gray-600 ${
-                    plan.popular ? 'ring-2 ring-yellow-400' : ''
-                  }`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-montserrat-uppercase">
-                        Most Popular
-                      </span>
-                    </div>
-                  )}
-                  
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl text-white mb-2 font-goldman-bold">
-                      {plan.name}
-                    </h3>
-                    <div className="flex items-baseline justify-center">
-                      <span className="text-4xl text-white font-goldman-bold">
-                        {plan.price}
-                      </span>
-                      <span className="text-gray-300 ml-1 font-montserrat-light">
-                        {plan.period}
-                      </span>
-                    </div>
+                <div className="bg-gray-900 p-6 rounded-lg border border-gray-700 h-full">
+                  <div className="w-20 h-20 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-2xl font-goldman-bold text-black">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
                   </div>
-                  
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center">
-                        <FiStar className="h-5 w-5 text-yellow-400 mr-3" />
-                        <span className="text-gray-300 font-montserrat-light">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Button
-                    variant={plan.popular ? 'primary' : 'outline'}
-                    className="w-full"
-                    onClick={() => navigate('/register')}
-                  >
-                    Get Started
-                  </Button>
-                </Card>
+                  <h3 className="text-xl text-white mb-2 font-goldman-bold">
+                    {member.name}
+                  </h3>
+                  <p className="text-yellow-400 mb-3 font-montserrat-light">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-300 font-montserrat-light text-sm">
+                    {member.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -342,11 +308,11 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div data-aos="zoom-in" data-aos-duration="800">
             <h2 className="text-4xl text-black mb-4 font-goldman-bold">
-              Ready to Transform Your Reviews?
+              Ready to Join Our Mission?
             </h2>
             <p className="text-xl text-black mb-8 max-w-2xl mx-auto font-montserrat-light">
-              Join thousands of businesses already using Level 4 You to build 
-              trust and grow their online presence.
+              Be part of the movement to restore trust in online reviews and help businesses 
+              showcase their authentic value.
             </p>
             <Button
               size="lg"
@@ -355,7 +321,7 @@ const LandingPage = () => {
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              Start Your Free Trial
+              Start Your Journey
             </Button>
           </div>
         </div>
@@ -388,4 +354,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default AboutUsPage;

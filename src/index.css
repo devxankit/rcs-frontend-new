@@ -88,6 +88,44 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: #1f2937;
+  position: relative;
+  z-index: 1;
+}
+
+/* About Us Hero Background */
+.about-hero-bg {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/image-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #1f2937;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Us Hero Background */
+.contact-hero-bg {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/image-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #1f2937;
+  position: relative;
+  z-index: 1;
+}
+
+/* How It Works Hero Background */
+.how-it-works-hero-bg {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/image-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #1f2937;
+  position: relative;
+  z-index: 1;
 }
 
 /* Alternative approach */
@@ -189,4 +227,64 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+  position: relative;
+  z-index: 1000;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  width: 14rem;
+  background-color: #000000;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 9999 !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Ensure dropdown appears above hero sections */
+header {
+  position: relative;
+  z-index: 50;
+}
+
+/* Fix for hero section z-index conflicts */
+.hero-bg,
+.about-hero-bg,
+.contact-hero-bg,
+.how-it-works-hero-bg {
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1.5rem;
+  color: #ffffff;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #1f2937;
+  color: #fbbf24;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #374151;
+  margin: 0.25rem 0;
 }
