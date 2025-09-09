@@ -346,6 +346,49 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Unique Level Section */}
+      <section 
+        className="py-10  relative"
+        style={{
+          background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/image-1.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         
+          
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 border-2 border-yellow-400/50 rounded-xl p-4 sm:p-6 lg:p-8 backdrop-blur-sm" data-aos="fade-up">
+            <div className="flex-1 mb-6 lg:mb-0">
+              <div className="flex flex-col sm:flex-row sm:items-center mb-4">
+                <h3 className="text-xl sm:text-2xl font-goldman-bold text-yellow-400">
+                  Unique Level
+                </h3>
+                <span className="mt-2 sm:mt-0 sm:ml-4 px-3 py-1 bg-yellow-400 text-black text-xs sm:text-sm font-montserrat-uppercase rounded-full w-fit">
+                  Enterprise
+                </span>
+              </div>
+              <p className="text-sm sm:text-base font-montserrat-light leading-relaxed text-yellow-100">
+                This plan is intended for large companies such as major retail chains, mobile network operators, hotel chains, private clinics, car dealership networks, banks, manufacturing enterprises, government organizations, and others. It is tailored individually based on a detailed business analysis and the client's specific requirements.
+              </p>
+              <div className="mt-4 p-3 sm:p-4 bg-black/30 rounded-lg border border-yellow-400/30">
+                <p className="text-yellow-200 text-xs sm:text-sm font-montserrat-light">
+                  <strong>Note:</strong> This is an informational plan. Contact our sales team for custom pricing and implementation details.
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end lg:ml-8 flex-col items-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-2">
+                <FiStar className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-black" />
+              </div>
+              <span className="text-yellow-400 text-xs sm:text-sm font-montserrat-uppercase">Custom</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-yellow-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

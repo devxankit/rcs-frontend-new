@@ -51,12 +51,6 @@ const HowItWorksPage = () => {
       name: 'Pro Level',
       description: 'Designed for companies that value scale and are ready for comprehensive review management with advanced analytics and automation.',
       badge: '/images/badge-3.png'
-    },
-    {
-      name: 'Unique Level',
-      description: 'This plan is intended for large companies such as major retail chains, mobile network operators, hotel chains, private clinics, car dealership networks, banks, manufacturing enterprises, government organizations, and others. It is tailored individually based on a detailed business analysis and the client\'s specific requirements.',
-      badge: null,
-      isSpecial: true
     }
   ];
 
@@ -268,57 +262,27 @@ const HowItWorksPage = () => {
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
-                className={`flex flex-col lg:flex-row lg:items-center lg:justify-between ${
-                  plan.isSpecial 
-                    ? 'bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 border-2 border-yellow-400/50 rounded-xl p-4 sm:p-6 lg:p-8 backdrop-blur-sm' 
-                    : ''
-                }`}
+                className="flex flex-col lg:flex-row lg:items-center lg:justify-between"
                 data-aos="fade-up"
                 data-aos-delay={index * 200}
               >
                 <div className="flex-1 mb-6 lg:mb-0">
                   <div className="flex flex-col sm:flex-row sm:items-center mb-4">
-                    <h3 className={`text-xl sm:text-2xl font-goldman-bold ${
-                      plan.isSpecial ? 'text-yellow-400' : 'text-white'
-                    }`}>
+                    <h3 className="text-xl sm:text-2xl font-goldman-bold text-white">
                       {plan.name}
                     </h3>
-                    {plan.isSpecial && (
-                      <span className="mt-2 sm:mt-0 sm:ml-4 px-3 py-1 bg-yellow-400 text-black text-xs sm:text-sm font-montserrat-uppercase rounded-full w-fit">
-                        Enterprise
-                      </span>
-                    )}
                   </div>
-                  <p className={`text-sm sm:text-base font-montserrat-light leading-relaxed ${
-                    plan.isSpecial ? 'text-yellow-100' : 'text-white'
-                  }`}>
+                  <p className="text-sm sm:text-base font-montserrat-light leading-relaxed text-white">
                     {plan.description}
                   </p>
-                  {plan.isSpecial && (
-                    <div className="mt-4 p-3 sm:p-4 bg-black/30 rounded-lg border border-yellow-400/30">
-                      <p className="text-yellow-200 text-xs sm:text-sm font-montserrat-light">
-                        <strong>Note:</strong> This is an informational plan. Contact our sales team for custom pricing and implementation details.
-                      </p>
-                    </div>
-                  )}
                 </div>
-                {plan.badge && (
-                  <div className="flex justify-center lg:justify-end lg:ml-8">
-                    <img 
-                      src={plan.badge} 
-                      alt={`${plan.name} Badge`}
-                      className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
-                    />
-                  </div>
-                )}
-                {plan.isSpecial && (
-                  <div className="flex justify-center lg:justify-end lg:ml-8 flex-col items-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-2">
-                      <FiStar className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-black" />
-                    </div>
-                    <span className="text-yellow-400 text-xs sm:text-sm font-montserrat-uppercase">Custom</span>
-                  </div>
-                )}
+                <div className="flex justify-center lg:justify-end lg:ml-8">
+                  <img 
+                    src={plan.badge} 
+                    alt={`${plan.name} Badge`}
+                    className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
